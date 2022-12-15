@@ -41,7 +41,12 @@
         color: #000000;
         font-size: 20px;
         position:absolute; top:600px; left:80px; width:200px; height:40px; 
-    
+    }
+    #btnC {
+        color: #000000;
+        font-size: 20px;
+        position:absolute; top:640px; left:80px; width:200px; height:40px;
+    }
   </style>
   <script>
     $(function(){
@@ -56,6 +61,9 @@
       });
       $('#btnB').click(function(e) {
           btnBClick(e);
+      });
+      $('#btnC').click(function(e) {
+          btnCClick(e);
       });
     });
     
@@ -78,7 +86,7 @@
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
-        counter++;
+        counter+=1000;
         $("#message").html(counter);
         var audio = new Audio();
         audio.src = "rezi.mp3";
@@ -94,6 +102,12 @@
         audio.play();
     }
 
+    function btnCClick(e){
+        counter-=1000;
+        $("#message").html(counter);
+        
+    }
+
   </script>
 </head>
 <body>
@@ -101,7 +115,8 @@
   <div id="message">0</div>
    <div id="man">万円</div>
   <button id="btnA">給料日</button>  
-  <button id="btnB">お買い物</button>  
+  <button id="btnB">お買い物</button> 
+  <button id="btnC">マイナス</button>  
 
 </body>
 </html>
