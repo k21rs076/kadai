@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+     body {background: #808000;
+     }
+    #hello {
+        color: #ff3300;
+        font-size: 60px;
+        position:absolute; top:20px; left:25px;
+    }
+
+    #message {
+        color: #000000;
+        font-size: 80px;
+        position:absolute; top:200px; left:150px; 
+    }
+
+    #man {
+        color: #000000;
+        font-size: 60px;
+        position:absolute; top:250px; left:220px; 
+    }
+
+    #btnA {
+        color: #000000;
+        font-size: 30px;
+        position:absolute; top:450px; left:80px; width:200px; height:150px;
+         
+    }
+    #btnB {
+        color: #000000;
+        font-size: 20px;
+        position:absolute; top:600px; left:80px; width:200px; height:40px; 
+    
+  </style>
+  <script>
+    $(function(){
+        setInterval(function(){
+            timer();
+        },1000);
+    });  
+      
+    $(function() { // ready btnAとbtnBのクリックの処理の登録
+      $('#btnA').click(function(e) {
+          btnAClick(e);
+      });
+      $('#btnB').click(function(e) {
+          btnBClick(e);
+      });
+    });
+    
+    function timer(){        
+    }
+
+    function rgbToColor(r,g,b){
+        return "#" + hex2(r)+hex2(g)+hex2(b);
+    }
+    
+    function hex2(x) {
+        var str = "0"+x.toString(16);
+        return str.substring(str.length-2);
+    }
+    // これより上は編集しなくて良い
+    
+    
+    // 変数宣言
+    var counter = 0;
+    
+    // ButtonAがクリックされた時の処理
+    function btnAClick(e){
+        counter++;
+        $("#message").html(counter);
+        var audio = new Audio();
+        audio.src = "rezi.mp3";
+        audio.play();
+    }
+
+    // ButtonBがクリックされた時の処理
+    function btnBClick(e){
+        counter = 0;
+        $("#message").html(counter);
+        var audio = new Audio();
+        audio.src = "rise.mp3";
+        audio.play();
+    }
+
+  </script>
+</head>
+<body>
+  <div id="hello">CoinGame</div>
+  <div id="message">0</div>
+   <div id="man">万円</div>
+  <button id="btnA">給料日</button>  
+  <button id="btnB">お買い物</button>  
+
+</body>
+</html>
