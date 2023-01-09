@@ -101,11 +101,13 @@
         audio.src = "rise.mp3";
         audio.play();
     }
-
+    // ButtonCがクリックされた時の処理
     function btnCClick(e){
         counter-=1000;
         $("#message").html(counter);
-        
+        var audio = new Audio();
+        audio.src = "rise.mp3";
+        audio.play();
     }
 
   </script>
